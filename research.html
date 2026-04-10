@@ -1,0 +1,458 @@
+<!--
+  ============================================================
+  MPO — Research & Outputs Index Page
+  ============================================================
+
+  This page is the hub for all MPO published reports and data outputs.
+  It currently contains the inaugural Ethiopia Merchant Survey (April 2026).
+
+  Content is drawn directly from the Ethiopia Merchant Survey deck
+  (20260408_Ethiopia Merchant Survey_vF.pptx).
+
+  HOW TO ADD NEW REPORTS
+  ----------------------
+  Each country report is a <article class="report-full"> block inside
+  <section class="report-index">. To add Nigeria or Pakistan:
+    1. Duplicate an existing <article class="report-full"> block.
+    2. Update the id, title, date, description, and key-findings.
+    3. Add a matching <li> in the sidebar <nav class="report-nav">.
+
+  ADDING DOWNLOAD LINKS
+  ---------------------
+  Replace the href on each .report-full__download link with the real
+  PDF URL or hosted file path when the report is published.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Research &amp; Outputs — MPO</title>
+    <meta
+      name="description"
+      content="MPO research reports and data outputs on merchant payment adoption across Ethiopia, Nigeria, and Pakistan."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="research.css" />
+  </head>
+
+  <body>
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html" class="nav__logo-link" aria-label="MPO home">
+            <img
+              src="assets/dfs-lab-logo.png"
+              alt="DFS Lab"
+              class="nav__logo"
+              width="120"
+              height="32"
+            />
+          </a>
+          <div class="nav__links">
+            <a href="research.html" class="nav__link nav__link--active">Research &amp; Outputs</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main>
+
+      <!-- ---- PAGE HEADER ---- -->
+      <section class="page-hero">
+        <div class="container page-hero__inner">
+          <div class="page-hero__content">
+            <p class="hero__eyebrow">Merchant Payments Observatory</p>
+            <h1 class="page-hero__title">Research &amp; Outputs</h1>
+            <p class="page-hero__desc">
+              High-frequency, nationally representative evidence on merchant
+              payment behavior, infrastructure readiness, and digital adoption
+              across Ethiopia, Nigeria, and Pakistan.
+            </p>
+          </div>
+          <!-- Market payment image from the deck -->
+          <div class="page-hero__image-wrap" aria-hidden="true">
+            <img
+              src="assets/market-payment.jpg"
+              alt="Two women completing a mobile payment transaction at a market"
+              class="page-hero__image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- REPORT INDEX ---- -->
+      <section class="report-index" aria-labelledby="reports-index-heading">
+        <div class="container report-index__layout">
+
+          <!-- Sidebar navigation — links to anchors for each report -->
+          <aside class="report-nav" aria-label="Report navigation">
+            <p class="report-nav__label">Published Reports</p>
+            <ul role="list">
+              <li>
+                <a href="#ethiopia-survey" class="report-nav__link">
+                  <span class="report-nav__country">Ethiopia</span>
+                  <span class="report-nav__name">Merchant Payment Landscape Survey</span>
+                  <time datetime="2026-04-11" class="report-nav__date">April 2026</time>
+                </a>
+              </li>
+              <!--
+                UPDATE: Add links here as Nigeria and Pakistan reports are published.
+                <li>
+                  <a href="#nigeria-survey" class="report-nav__link report-nav__link--upcoming">
+                    <span class="report-nav__country">Nigeria</span>
+                    <span class="report-nav__name">Merchant Payment Landscape Survey</span>
+                    <span class="badge badge--soon">Coming Soon</span>
+                  </a>
+                </li>
+              -->
+            </ul>
+          </aside>
+
+          <!-- Main report listings -->
+          <div class="report-listings">
+
+            <!-- ====================================================
+                 REPORT 1: ETHIOPIA MERCHANT SURVEY
+                 Content drawn from 20260408_Ethiopia Merchant Survey_vF.pptx
+                 ==================================================== -->
+            <article class="report-full" id="ethiopia-survey" aria-labelledby="ethiopia-title">
+
+              <header class="report-full__header">
+                <div class="report-full__meta">
+                  <span class="badge badge--launching">Available Now</span>
+                  <span class="report-full__country">Ethiopia</span>
+                  <time datetime="2026-04-11" class="report-full__date">April 2026</time>
+                </div>
+
+                <h2 class="report-full__title" id="ethiopia-title">
+                  Understanding Ethiopia's Merchant Payment Landscape
+                  from the Ground Up
+                </h2>
+
+                <p class="report-full__subtitle">
+                  Merchant Payments Observatory · Wave 1 · n = 2,724 micro-enterprises
+                </p>
+
+                <p class="report-full__summary">
+                  A nationally representative survey of micro-enterprises across
+                  urban and rural Ethiopia, examining the full arc of merchant
+                  digital payment readiness — from formal registration and
+                  infrastructure access through to adoption patterns, provider
+                  concentration, and the persistent barriers keeping merchants
+                  cash-based.
+                </p>
+
+                <div class="report-full__actions">
+                  <!--
+                    UPDATE: Replace href with the real PDF or hosted report URL
+                    when the file is published.
+                  -->
+                  <a href="#" class="btn btn--primary report-full__download">
+                    Download Report (PDF)
+                  </a>
+                  <a href="index.html" class="btn btn--outline">← Back to home</a>
+                </div>
+              </header>
+
+              <!-- ---- About the Observatory ---- -->
+              <section class="report-section" aria-labelledby="about-obs">
+                <h3 class="report-section__title" id="about-obs">
+                  About the Observatory
+                </h3>
+                <div class="report-section__body">
+                  <p>
+                    The Merchant Payments Observatory is a multi-country research
+                    initiative designed to generate high-frequency, nationally
+                    representative evidence on merchant payment behavior. Operating
+                    across Pakistan, Nigeria, and Ethiopia, the Observatory
+                    combines depth, scale, and longitudinal design to move beyond
+                    adoption metrics.
+                  </p>
+                  <p>
+                    The study tracks changes over time in merchant behavior,
+                    barriers, and preferences through panel data; measures digital
+                    payment readiness, adoption, and usage among formal and
+                    informal MSMEs; surfaces gender-differentiated patterns in
+                    access and adoption; and identifies persistent and emerging
+                    constraints — including infrastructure, cost, attitudes, and
+                    capability barriers — to galvanize policy, regulatory, and
+                    market interventions.
+                  </p>
+                </div>
+              </section>
+
+              <!-- ---- Report image ---- -->
+              <div class="report-image-block" aria-hidden="true">
+                <img
+                  src="assets/merchant-payment.png"
+                  alt="A merchant accepting a card payment at a point-of-sale terminal"
+                  class="report-image"
+                />
+              </div>
+
+              <!-- ---- Methodology ---- -->
+              <section class="report-section" aria-labelledby="methodology">
+                <h3 class="report-section__title" id="methodology">
+                  Methodology &amp; Sample
+                </h3>
+                <div class="report-section__body">
+                  <p>
+                    The survey targets micro-enterprises — those with fewer than
+                    5 employees — which represent 97% of the sample and the vast
+                    majority of Ethiopia's formal and informal merchant landscape.
+                    A total of 2,724 enterprises were enumerated, weighted to
+                    reflect population distributions across enterprise size and
+                    urban-rural breakdown.
+                  </p>
+                  <p>
+                    Data collection captured both cash-only and digitally active
+                    merchants to provide a complete market view. The longitudinal
+                    design supports repeated survey waves to track adoption trends
+                    and behavioral shifts over time.
+                  </p>
+                </div>
+              </section>
+
+              <!-- ---- Table of Contents ---- -->
+              <section class="report-section" aria-labelledby="toc">
+                <h3 class="report-section__title" id="toc">Report Contents</h3>
+                <ol class="report-toc" role="list">
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">01</span>
+                    <div>
+                      <strong>Methodology &amp; Sampling Framework</strong>
+                      <p>Study design, enumeration, and weighting approach</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">02</span>
+                    <div>
+                      <strong>Merchant Profile &amp; Business Context</strong>
+                      <p>Ownership, gender, age, business type, location, turnover</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">03</span>
+                    <div>
+                      <strong>Digital Payment Readiness — Institutional Enablers</strong>
+                      <p>Business license registration, National ID ownership, formal registration depth</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">04</span>
+                    <div>
+                      <strong>Digital Payment Readiness — Physical Infrastructure</strong>
+                      <p>Electricity access, mobile phone usage, connectivity and internet reliability</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">05</span>
+                    <div>
+                      <strong>Digital Payment Adoption &amp; Behavior</strong>
+                      <p>Adoption rates, channels, providers, transaction values</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">06</span>
+                    <div>
+                      <strong>Digital Channel Utilization</strong>
+                      <p>Account usage, onboarding patterns, and merchant satisfaction</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">07</span>
+                    <div>
+                      <strong>Barriers to Adoption</strong>
+                      <p>KYC friction, connectivity costs, customer-side constraints</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">08</span>
+                    <div>
+                      <strong>Value Proposition of Digital Merchant Payments</strong>
+                      <p>Perceived benefits by gender, age, and provider type</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">09</span>
+                    <div>
+                      <strong>Cash-Based Enterprises</strong>
+                      <p>Characteristics, barriers, and pathways to digital adoption</p>
+                    </div>
+                  </li>
+                  <li class="report-toc__item">
+                    <span class="report-toc__num">10</span>
+                    <div>
+                      <strong>Value-Adding Services &amp; Credit</strong>
+                      <p>Demand for BFSI products, credit access, and formal borrowing gaps</p>
+                    </div>
+                  </li>
+                </ol>
+              </section>
+
+              <!-- ---- Key Findings ---- -->
+              <section class="report-section" aria-labelledby="key-findings">
+                <h3 class="report-section__title" id="key-findings">
+                  Key Findings
+                </h3>
+                <p class="report-section__intro">
+                  Ethiopia's merchants are transacting digitally, but on a narrow
+                  base — heavily concentrated in one provider, confined to personal
+                  accounts, and largely disconnected from the wider financial system.
+                </p>
+
+                <ul class="findings-list" role="list">
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">01</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">Demographic Skew</h4>
+                      <p class="finding-card__text">
+                        The market is overwhelmingly male-led and driven by youth,
+                        defining the core target for digital adoption programmes.
+                        Female-owned enterprises show a rising presence in urban
+                        areas, with 50.3% female ownership recorded in certain
+                        urban segments.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">02</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">Bank-Led Concentration</h4>
+                      <p class="finding-card__text">
+                        CBE commands a near-monopoly with an 83% primary provider
+                        share and 98% of mobile banking users, creating a single
+                        point of concentration risk for Ethiopia's merchant
+                        payment infrastructure.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">03</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">The Maturity Paradox</h4>
+                      <p class="finding-card__text">
+                        64% of businesses have operated for over 5 years, yet
+                        remain structurally informal — with 99% still relying on
+                        personal rather than business accounts, limiting providers'
+                        ability to distinguish commercial from personal transactions.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">04</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">The Rural Bridge</h4>
+                      <p class="finding-card__text">
+                        While urban areas are bank-led, E-Birr (Telebirr) dominates
+                        rural markets with 89% penetration, filling infrastructure
+                        gaps where mobile money acts as the primary financial
+                        access point.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">05</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">Critical Infrastructure Gaps</h4>
+                      <p class="finding-card__text">
+                        National ID ownership (61%) and reliable electricity access
+                        (with over two-thirds reporting daily or weekly outages) act
+                        as a hard ceiling for formal financial onboarding and
+                        sustained digital payment use.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="finding-card">
+                    <span class="finding-card__icon" aria-hidden="true">06</span>
+                    <div class="finding-card__body">
+                      <h4 class="finding-card__title">Unmet Credit Demand</h4>
+                      <p class="finding-card__text">
+                        45% of micro-enterprises need credit, but only 11% borrow
+                        formally. Heavy reliance on trust-based lending and
+                        informal credit sources represents a substantial
+                        opportunity for digital lending products.
+                      </p>
+                    </div>
+                  </li>
+
+                </ul>
+              </section>
+
+              <!-- ---- Download CTA ---- -->
+              <div class="report-full__footer-cta">
+                <!--
+                  UPDATE: Replace href with the real PDF URL when published.
+                -->
+                <a href="#" class="btn btn--primary">
+                  Download Full Report (PDF)
+                </a>
+                <p class="report-full__footer-note">
+                  Published April 2026 · Merchant Payments Observatory Wave 1 · Ethiopia
+                </p>
+              </div>
+
+            </article>
+            <!-- END: Ethiopia Survey -->
+
+            <!--
+              UPDATE: Add Nigeria and Pakistan report articles here when ready.
+              Use the same <article class="report-full"> structure.
+            -->
+
+          </div>
+          <!-- END .report-listings -->
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container footer__inner">
+
+        <div class="footer__brand">
+          <img
+            src="assets/dfs-lab-logo.png"
+            alt="DFS Lab"
+            class="footer__logo"
+          />
+          <span class="footer__tagline">Merchant Payments Observatory</span>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <!-- UPDATE: Replace with real contact email and legal page URLs -->
+          <a href="mailto:contact@dfslab.net" class="footer__link">contact@dfslab.net</a>
+          <a href="/privacy" class="footer__link">Privacy Policy</a>
+          <a href="/terms" class="footer__link">Terms of Use</a>
+        </nav>
+
+        <p class="footer__legal">
+          &copy; 2026 DFS Lab. All rights reserved.
+        </p>
+
+      </div>
+    </footer>
+
+  </body>
+</html>
