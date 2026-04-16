@@ -368,10 +368,10 @@ button {
 }
 
 .hero__title {
-  font-size: clamp(var(--text-4xl), 7vw, 4.5rem);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--color-text);
 }
 
