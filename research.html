@@ -173,102 +173,131 @@
     </footer>
 
     <!-- ===================== EMAIL GATE MODAL ===================== -->
-    <!--
-      Hidden by default. Shown by JS when a download button is clicked.
-    -->
     <div id="email-gate" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
       <div class="modal__backdrop"></div>
       <div class="modal__card">
-        <h3 class="modal__title" id="modal-title">Download Report</h3>
-        <p class="modal__desc">Enter your email and we'll send you access — your download will also start immediately.</p>
 
-        <!--
-          UPDATE: Replace YOUR_FORMSPREE_ID with your real Formspree form ID.
-          Get it at https://formspree.io after creating a new form.
-        -->
-        <form
-          id="email-form"
-          action="https://formspree.io/f/xyklezdb"
-          method="POST"
-        >
-          <!-- Tracks which report was downloaded — populated by JS -->
-          <input type="hidden" name="report" id="modal-report-field" value="" />
+        <div class="modal__accent" aria-hidden="true"></div>
 
-          <div class="modal__field">
-            <label for="modal-email" class="label">Email address</label>
-            <input
-              type="email"
-              id="modal-email"
-              name="email"
-              class="input-field"
-              placeholder="you@organisation.org"
-              required
-              autocomplete="email"
-            />
-          </div>
+        <!-- Form state -->
+        <div id="modal-form-state">
+          <h3 class="modal__title" id="modal-title">Stay in the loop</h3>
+          <p class="modal__desc">
+            Leave your email and we'll send you new reports from the Merchant
+            Payments Observatory as they're published. Your download will
+            start immediately.
+          </p>
 
-          <div class="modal__actions">
-            <button type="submit" class="btn btn--primary" id="modal-submit">
-              Download →
+          <form id="email-form" action="https://formspree.io/f/xyklezdb" method="POST">
+            <input type="hidden" name="report" id="modal-report-field" value="" />
+
+            <div class="modal__field">
+              <label for="modal-email" class="modal__label">Email address</label>
+              <input
+                type="email"
+                id="modal-email"
+                name="email"
+                class="modal__input"
+                placeholder="you@organisation.org"
+                required
+                autocomplete="email"
+              />
+            </div>
+
+            <button type="submit" class="btn btn--primary modal__submit" id="modal-submit">
+              Download &amp; Subscribe →
             </button>
-            <button type="button" class="btn btn--outline" id="modal-cancel">
-              Cancel
-            </button>
-          </div>
+          </form>
 
           <p class="modal__privacy">
-            We'll only use your email to share updates from the Merchant Payments
-            Observatory. No spam.
+            We only use your email to send new MPO reports. No spam, unsubscribe any time.
           </p>
-        </form>
 
-        <!-- Shown after successful submission -->
-        <div id="modal-success" class="modal__success" hidden>
-          <p>&#10003; Your download is starting.</p>
-          <p class="modal__privacy">We'll be in touch with future reports.</p>
+          <button type="button" class="modal__cancel" id="modal-cancel">
+            No thanks, cancel
+          </button>
         </div>
+
+        <!-- Success state — shown after submission -->
+        <div id="modal-success" class="modal__success-state" hidden>
+          <div class="modal__success-icon" aria-hidden="true">✓</div>
+          <h3 class="modal__title">Your download is starting.</h3>
+          <p class="modal__desc">
+            We'll send you new reports from the Merchant Payments Observatory
+            as they're published.
+          </p>
+          <p class="modal__fallback">
+            Download didn't start?
+            <a id="modal-fallback-link" href="#" target="_blank" rel="noopener" class="modal__fallback-link">
+              Click here to download directly →
+            </a>
+          </p>
+          <button type="button" class="btn btn--outline modal__close-btn" id="modal-close">
+            Close
+          </button>
+        </div>
+
       </div>
     </div>
 
     <!-- ===================== SCRIPT ===================== -->
     <script>
       (function () {
-        var gate     = document.getElementById('email-gate');
-        var form     = document.getElementById('email-form');
-        var success  = document.getElementById('modal-success');
-        var backdrop = gate.querySelector('.modal__backdrop');
-        var cancelBtn = document.getElementById('modal-cancel');
-        var submitBtn = document.getElementById('modal-submit');
+        var gate        = document.getElementById('email-gate');
+        var form        = document.getElementById('email-form');
+        var formState   = document.getElementById('modal-form-state');
+        var successState = document.getElementById('modal-success');
+        var backdrop    = gate.querySelector('.modal__backdrop');
+        var cancelBtn   = document.getElementById('modal-cancel');
+        var closeBtn    = document.getElementById('modal-close');
+        var submitBtn   = document.getElementById('modal-submit');
         var reportField = document.getElementById('modal-report-field');
-        var pendingPdf = '';
+        var fallbackLink = document.getElementById('modal-fallback-link');
+        var pendingPdf  = '';
 
-        // Open modal when a download button is clicked
-        document.querySelectorAll('.pub-card__download').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            pendingPdf = btn.getAttribute('data-pdf');
-            reportField.value = btn.getAttribute('data-report') || '';
-            form.hidden = false;
-            success.hidden = true;
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Download →';
-            gate.hidden = false;
-            document.getElementById('modal-email').focus();
-          });
-        });
+        function triggerDownload(url) {
+          if (url && url !== '#') {
+            window.open(url, '_blank');
+          }
+        }
+
+        function openModal(pdfUrl, reportName) {
+          pendingPdf = pdfUrl;
+          reportField.value = reportName || '';
+          fallbackLink.href = pdfUrl && pdfUrl !== '#' ? pdfUrl : '#';
+          formState.hidden = false;
+          successState.hidden = true;
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Download & Subscribe →';
+          form.reset();
+          gate.hidden = false;
+          document.getElementById('modal-email').focus();
+        }
 
         function closeModal() {
           gate.hidden = true;
-          form.reset();
         }
 
-        cancelBtn.addEventListener('click', closeModal);
-        backdrop.addEventListener('click', closeModal);
+        // If user already gave their email this session, skip the modal
+        document.querySelectorAll('.pub-card__download').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pdfUrl = btn.getAttribute('data-pdf');
+            var reportName = btn.getAttribute('data-report') || '';
+            if (sessionStorage.getItem('mpo_email_given')) {
+              triggerDownload(pdfUrl);
+            } else {
+              openModal(pdfUrl, reportName);
+            }
+          });
+        });
 
+        cancelBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape' && !gate.hidden) closeModal();
         });
 
-        // Submit via fetch so we can trigger the download on success
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           submitBtn.disabled = true;
@@ -281,22 +310,18 @@
           })
           .then(function (res) {
             if (res.ok) {
-              // Trigger the PDF download
-              if (pendingPdf && pendingPdf !== '#') {
-                window.open(pendingPdf, '_blank');
-              }
-              form.hidden = true;
-              success.hidden = false;
-              // Auto-close after 3 seconds
-              setTimeout(closeModal, 3000);
+              sessionStorage.setItem('mpo_email_given', '1');
+              triggerDownload(pendingPdf);
+              formState.hidden = true;
+              successState.hidden = false;
             } else {
               submitBtn.disabled = false;
-              submitBtn.textContent = 'Try again';
+              submitBtn.textContent = 'Try again →';
             }
           })
           .catch(function () {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Try again';
+            submitBtn.textContent = 'Try again →';
           });
         });
       })();

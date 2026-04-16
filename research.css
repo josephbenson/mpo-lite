@@ -211,8 +211,8 @@
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgb(26 26 46 / 0.55);
-  backdrop-filter: blur(2px);
+  background-color: rgb(26 26 46 / 0.6);
+  backdrop-filter: blur(3px);
 }
 
 .modal__card {
@@ -220,58 +220,151 @@
   z-index: 1;
   background-color: var(--color-bg);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  padding: var(--space-2xl);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.2);
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+/* Teal accent bar at top */
+.modal__accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+/* Both states sit inside the card with consistent padding */
+#modal-form-state,
+#modal-success {
+  padding: var(--space-2xl);
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+}
+
+#modal-form-state[hidden],
+#modal-success[hidden] {
+  display: none;
 }
 
 .modal__title {
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .modal__desc {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-top: calc(var(--space-lg) * -0.5);
+  line-height: 1.65;
+  margin-top: calc(var(--space-sm) * -1);
 }
 
+/* Form internals */
 .modal__field {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
 }
 
-.modal__actions {
-  display: flex;
-  gap: var(--space-sm);
+.modal__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.modal__input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.modal__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.modal__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(59 191 160 / 0.15);
+}
+
+.modal__submit {
+  width: 100%;
+  height: 44px;
+  font-size: var(--text-base);
 }
 
 .modal__privacy {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
+  margin-top: calc(var(--space-sm) * -1);
 }
 
-.modal__success {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-lg);
-  background-color: var(--color-primary-light);
-  border-radius: var(--radius-md);
+.modal__cancel {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: #1A5C4B;
-  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: center;
+  transition: color var(--transition-fast);
+  margin-top: calc(var(--space-sm) * -1);
 }
 
-.modal__success[hidden] {
-  display: none;
+.modal__cancel:hover {
+  color: var(--color-text);
+}
+
+/* Success state */
+.modal__success-state {
+  text-align: center;
+  align-items: center;
+}
+
+.modal__success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__fallback {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: calc(var(--space-sm) * -1);
+}
+
+.modal__fallback-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.modal__fallback-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.modal__close-btn {
+  margin-top: calc(var(--space-sm) * -1);
 }
