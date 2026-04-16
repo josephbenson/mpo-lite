@@ -551,13 +551,11 @@ button {
   gap: var(--space-sm);
 }
 
-/* Invert the dark logo to white for dark footer */
 .footer__logo {
   height: 24px;
   width: auto;
   display: block;
   align-self: flex-start;
-  filter: invert(1) brightness(2);
 }
 
 .footer__tagline {
