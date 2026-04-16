@@ -125,27 +125,6 @@
   }
 }
 
-/* Raw photo — no border-radius or shadow */
-.pub-card__image-wrap {
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-}
-
-@media (min-width: 768px) {
-  .pub-card__image-wrap {
-    aspect-ratio: auto;
-    height: 280px;
-  }
-}
-
-.pub-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-}
-
 .pub-card__body {
   display: flex;
   flex-direction: column;
@@ -185,6 +164,63 @@
 .pub-card__download {
   align-self: flex-start;
   margin-top: var(--space-sm);
+}
+
+
+/* ============================================================
+   IMAGE STACK — fanned photos with rounded corners
+   Used in page-hero and pub-card image slots.
+   ============================================================ */
+.img-stack {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  flex-shrink: 0;
+}
+
+.img-stack__item {
+  position: absolute;
+  width: 84%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Back card — rotated right, bottom-right anchor */
+.img-stack__item--back {
+  bottom: 0;
+  right: 0;
+  transform: rotate(5.5deg);
+  z-index: 1;
+  object-position: center 30%;
+}
+
+/* Middle card */
+.img-stack__item--mid {
+  bottom: 28px;
+  right: 20px;
+  transform: rotate(-3deg);
+  z-index: 2;
+  object-position: center 20%;
+}
+
+/* Front card — slight tilt, highest */
+.img-stack__item--front {
+  bottom: 56px;
+  right: 40px;
+  transform: rotate(1.5deg);
+  z-index: 3;
+  object-position: center 15%;
+}
+
+/* Tighter stack for the pub-card (narrower column) */
+.pub-card__image-stack {
+  height: 280px;
+}
+
+.pub-card__image-stack .img-stack__item {
+  height: 210px;
 }
 
 
