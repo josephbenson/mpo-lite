@@ -547,7 +547,6 @@ button {
 .site-footer {
   background-color: var(--color-ink);
   padding-block: var(--space-3xl);
-  margin-top: var(--space-2xl);
 }
 
 .footer__inner {
@@ -559,7 +558,7 @@ button {
 @media (min-width: 768px) {
   .footer__inner {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
 }
@@ -616,7 +615,6 @@ button {
   .footer__legal {
     text-align: right;
     white-space: nowrap;
-    align-self: flex-end;
   }
 }
 
