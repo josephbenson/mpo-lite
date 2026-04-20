@@ -26,7 +26,7 @@
    NAV ACTIVE STATE
    ============================================================ */
 .nav__link--active {
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -35,7 +35,7 @@
    PAGE HERO
    ============================================================ */
 .page-hero {
-  padding-block: var(--space-4xl) var(--space-3xl);
+  padding-block: var(--sp-20) var(--sp-16);
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -43,34 +43,36 @@
 .page-hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3xl);
+  gap: var(--sp-16);
   align-items: center;
 }
 
 @media (min-width: 768px) {
   .page-hero__inner {
     grid-template-columns: 55fr 45fr;
-    gap: var(--space-4xl);
+    gap: var(--sp-20);
   }
 }
 
 .page-hero__content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--sp-6);
 }
 
 .page-hero__title {
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  color: var(--color-ink);
+  color: var(--color-text);
 }
 
 .page-hero__desc {
-  font-size: var(--text-lg);
-  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
   line-height: 1.75;
   max-width: 520px;
 }
@@ -100,7 +102,7 @@
    PUBLICATIONS LIST — editorial, no card boxes
    ============================================================ */
 .publications {
-  padding-block: var(--space-4xl);
+  padding-block: var(--sp-20);
 }
 
 .pub-list {
@@ -112,58 +114,61 @@
 .pub-card {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
+  gap: var(--sp-12);
   align-items: start;
-  padding-block: var(--space-3xl);
+  padding-block: var(--sp-16);
   border-bottom: 1px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
   .pub-card {
     grid-template-columns: 260px 1fr;
-    gap: var(--space-3xl);
+    gap: var(--sp-16);
   }
 }
 
 .pub-card__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--sp-6);
 }
 
 .pub-card__meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-sm);
+  gap: var(--sp-2);
 }
 
 .pub-card__label {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
 .pub-card__title {
-  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: var(--color-ink);
+  color: var(--color-text);
 }
 
 .pub-card__desc {
+  font-family: var(--font-sans);
   font-size: var(--text-base);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   line-height: 1.8;
   max-width: 600px;
 }
 
 .pub-card__download {
   align-self: flex-start;
-  margin-top: var(--space-sm);
+  margin-top: var(--sp-2);
 }
 
 
@@ -234,7 +239,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-lg);
+  padding: var(--sp-6);
 }
 
 .modal[hidden] {
@@ -244,16 +249,17 @@
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgb(26 26 46 / 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
 }
 
 .modal__card {
   position: relative;
   z-index: 1;
-  background-color: var(--color-bg);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 20px 60px rgb(0 0 0 / 0.2);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 420px;
   overflow: hidden;
@@ -261,17 +267,17 @@
 
 /* Teal accent bar at top */
 .modal__accent {
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
 }
 
 /* Both states sit inside the card with consistent padding */
 #modal-form-state,
 #modal-success {
-  padding: var(--space-2xl);
+  padding: var(--sp-8);
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--sp-5);
 }
 
 #modal-form-state[hidden],
@@ -280,7 +286,8 @@
 }
 
 .modal__title {
-  font-size: var(--text-xl);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: -0.02em;
@@ -288,36 +295,40 @@
 }
 
 .modal__desc {
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   line-height: 1.65;
-  margin-top: calc(var(--space-sm) * -1);
+  margin-top: calc(var(--sp-2) * -1);
 }
 
 /* Form internals */
 .modal__field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--sp-2);
 }
 
 .modal__label {
-  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--color-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 .modal__input {
   display: block;
   width: 100%;
   height: 44px;
-  padding: 0 var(--space-md);
+  padding: 0 var(--sp-4);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--color-text);
   background-color: var(--color-bg);
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   outline: none;
 }
@@ -327,22 +338,24 @@
 }
 
 .modal__input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgb(59 191 160 / 0.15);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(91, 191, 170, 0.15);
 }
 
 .modal__submit {
   width: 100%;
   height: 44px;
-  font-size: var(--text-base);
-  margin-top: var(--space-md);
+  font-size: var(--text-xs);
+  margin-top: var(--sp-2);
 }
 
 .modal__privacy {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
+  letter-spacing: 0.04em;
   color: var(--color-text-muted);
   line-height: 1.55;
-  margin-top: calc(var(--space-sm) * -1);
+  margin-top: calc(var(--sp-2) * -1);
 }
 
 .modal__cancel {
@@ -355,7 +368,7 @@
   cursor: pointer;
   text-align: center;
   transition: color var(--transition-fast);
-  margin-top: calc(var(--space-sm) * -1);
+  margin-top: calc(var(--sp-2) * -1);
 }
 
 .modal__cancel:hover {
@@ -372,9 +385,9 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-full);
-  background-color: var(--color-primary-light);
-  color: var(--color-primary-dark);
-  font-size: var(--text-xl);
+  background-color: var(--color-accent-dim);
+  color: var(--color-accent);
+  font-size: var(--text-lg);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -382,23 +395,24 @@
 }
 
 .modal__fallback {
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: 1.5;
-  margin-top: calc(var(--space-sm) * -1);
+  margin-top: calc(var(--sp-2) * -1);
 }
 
 .modal__fallback-link {
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .modal__fallback-link:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-accent-hover);
 }
 
 .modal__close-btn {
-  margin-top: calc(var(--space-sm) * -1);
+  margin-top: calc(var(--sp-2) * -1);
 }
