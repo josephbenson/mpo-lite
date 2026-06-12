@@ -209,6 +209,12 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: var(--radius-sm);
 }
 
+/* CTA button sitting inside the nav */
+.nav__cta {
+  margin-left: var(--sp-2);
+  padding: var(--sp-2) var(--sp-5);
+}
+
 /* Country sub-links in nav */
 .nav__country-links {
   display: flex;
