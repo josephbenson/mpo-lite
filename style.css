@@ -681,11 +681,56 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    MOBILE
    ============================================================ */
+
+/* Nav: hide country sub-links, tighten gap */
+@media (max-width: 639px) {
+  .nav__country-links {
+    display: none;
+  }
+
+  .nav__links {
+    gap: var(--sp-4);
+  }
+
+  .nav__cta {
+    margin-left: 0;
+    padding: var(--sp-2) var(--sp-4);
+  }
+
+  /* Shrink nav link text slightly so "Research & Outputs" + button fit */
+  .nav__link {
+    font-size: 0.875rem;
+  }
+}
+
+/* Very small screens: hide "Research & Outputs" text link, keep only Dashboard */
+@media (max-width: 400px) {
+  .nav__link {
+    display: none;
+  }
+}
+
 @media (max-width: 575px) {
   .hero {
     min-height: 85vh;
     padding-bottom: var(--sp-16);
     background-position: 60% 25%;
+  }
+
+  /* Stack hero CTAs full-width on small phones */
+  .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__ctas .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Countries section: reduce padding */
+  .countries {
+    padding-block: var(--sp-12);
   }
 }
 

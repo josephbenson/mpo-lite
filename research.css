@@ -95,6 +95,7 @@
 .country-filter__inner {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--sp-2);
 }
 
@@ -163,7 +164,8 @@
 .country-section__heading {
   display: flex;
   align-items: baseline;
-  gap: var(--sp-4);
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
   padding-bottom: var(--sp-5);
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 0;
@@ -542,3 +544,55 @@
 .modal__fallback-link:hover { color: var(--color-accent-hover); }
 
 .modal__close-btn { margin-top: calc(var(--sp-2) * -1); }
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 767px) {
+  /* Hide image stack on mobile — single column layout is enough */
+  .img-stack {
+    display: none;
+  }
+
+  /* Reduce page-hero padding */
+  .page-hero {
+    padding-block: var(--sp-10) var(--sp-8);
+  }
+
+  /* Tighten country section spacing */
+  .country-section {
+    padding-top: var(--sp-8);
+  }
+
+  /* Country section meta on its own line */
+  .country-section__meta {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Pub card: tighten vertical padding */
+  .pub-card {
+    padding-block: var(--sp-8);
+    gap: var(--sp-6);
+  }
+
+  /* Country filter sticky offset matches mobile nav height */
+  .country-filter {
+    top: 56px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Stack pub card download button full-width */
+  .pub-card__download {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Tighten modal padding */
+  #modal-form-state,
+  #modal-success {
+    padding: var(--sp-6);
+  }
+}
