@@ -1,66 +1,13 @@
-<!--
-  ============================================================
-  MPO — Merchant Payments Observatory — Splash Page
-  ============================================================
-
-  TECH STACK DECISION
-  -------------------
-  Plain HTML + CSS. No framework, no build step. The brief asks
-  to "quickly spin up a website." A static file drops directly
-  onto any host (Netlify, Vercel static, GitHub Pages, S3) with
-  zero configuration. JS is not required here; all interactivity
-  (disabled state, hover states) is handled in CSS.
-
-  HOW THIS TRANSLATES JAKE'S BRIEF
-  ---------------------------------
-  Brief: "simple splash page with a short few sentences about
-  the project with two paths — one to research/outputs, one to
-  the dashboard (greyed out / under construction)."
-
-  Page sections:
-    1. <header>   — DFS Lab logo + nav link to Research & Outputs.
-    2. <section.hero> — Project title, 2-sentence description, two
-                        CTAs. Split layout: text left, photo right on
-                        desktop. The photo is sourced directly from the
-                        Ethiopia Merchant Survey deck.
-    3. <section.reports> — Preview of what lives under Research & Outputs;
-                           shows the real Ethiopia survey report and its
-                           launch date. Gives visitors a reason to return.
-    4. <footer>   — DFS Lab identity, contact, legal.
-
-  Content hierarchy:
-    - "Merchant Payments Observatory" eyebrow + "MPO" H1 establish
-      identity immediately.
-    - Description (from the real deck) explains the project before
-      the user makes any click decision.
-    - CTAs are visually clear: Research & Outputs is enabled (teal);
-      Dashboard is suppressed (gray, "Coming Soon") to signal intent
-      without confusion.
-
-  Button states:
-    - "Research & Outputs" → fully enabled, primary teal → research.html
-    - "Dashboard" → aria-disabled, grayed out, pointer-events: none,
-      "Coming Soon" badge. Intentionally labelled so users understand
-      it is planned, not broken.
-
-  FUTURE PAGES
-  ------------
-  When /dashboard is ready:
-    - Remove aria-disabled="true", class "btn--disabled", and the
-      <span class="badge badge--soon"> from the Dashboard button.
-    - Change its href from "#" to "/dashboard" (or dashboard.html).
-  ============================================================
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Merchant Payments Observatory | Digital Payment Research in Ethiopia, Nigeria &amp; Pakistan</title>
+    <title>Merchant Payments Observatory | Digital Payment Research in Ethiopia &amp; Nigeria</title>
     <meta
       name="description"
-      content="MPO is a multi-country research initiative producing nationally representative survey evidence on merchant digital payment adoption. Baseline findings for Ethiopia now available."
+      content="MPO is a multi-country research initiative producing nationally representative survey evidence on merchant digital payment adoption. Baseline findings for Ethiopia now available; Nigeria launching 2026."
     />
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -82,25 +29,20 @@
       <div class="container">
         <nav class="nav" aria-label="Main navigation">
 
-          <!-- DFS Lab logo — sourced from the Ethiopia Merchant Survey deck -->
           <a href="/" class="nav__logo-link" aria-label="MPO — Merchant Payments Observatory home">
             <img
-              src="assets/dfs-lab-logo.png"
-              alt="DFS Lab"
+              src="assets/logo-primary.svg"
+              alt="DFS"
               class="nav__logo"
-              width="120"
-              height="32"
             />
           </a>
 
           <div class="nav__links">
-            <!-- Links to the Research & Outputs index page -->
             <a href="research.html" class="nav__link">Research &amp; Outputs</a>
-            <!--
-              Dashboard nav link omitted until /dashboard is live.
-              When ready, add:
-              <a href="dashboard.html" class="nav__link">Dashboard</a>
-            -->
+            <div class="nav__country-links">
+              <a href="research.html#ethiopia" class="nav__country-link">Ethiopia</a>
+              <a href="research.html#nigeria" class="nav__country-link">Nigeria</a>
+            </div>
           </div>
         </nav>
       </div>
@@ -110,11 +52,6 @@
     <main>
 
       <!-- ---- HERO ---- -->
-      <!--
-        Split layout on desktop: text left, photo right.
-        Photo (assets/hero-merchant.png) is taken directly from the
-        Ethiopia Merchant Survey presentation deck.
-      -->
       <section class="hero" aria-labelledby="hero-heading">
         <div class="container hero__inner">
 
@@ -133,19 +70,10 @@
 
             <div class="hero__ctas">
 
-              <!-- PRIMARY CTA — links to the Research & Outputs index page -->
               <a href="research.html" class="btn btn--primary">
                 Explore Research &amp; Outputs →
               </a>
 
-              <!--
-                SECONDARY CTA — Dashboard (disabled until live).
-                UPDATE: When Dashboard is ready:
-                  1. Remove aria-disabled="true"
-                  2. Remove class "btn--disabled"
-                  3. Change href from "#" to "dashboard.html"
-                  4. Remove the <span class="badge badge--soon"> element
-              -->
               <div class="cta-group__disabled-wrapper">
                 <a
                   href="#"
@@ -165,6 +93,56 @@
         </div>
       </section>
 
+      <!-- ---- COUNTRIES ---- -->
+      <section class="countries" aria-labelledby="countries-heading">
+        <div class="container">
+
+          <div class="countries__header">
+            <p class="countries__eyebrow">Markets</p>
+            <h2 class="countries__title" id="countries-heading">Active research programmes</h2>
+          </div>
+
+          <div class="countries__grid">
+
+            <!-- Ethiopia — live -->
+            <a href="research.html#ethiopia" class="country-card country-card--active">
+              <div class="country-card__flag">🇪🇹</div>
+              <div class="country-card__body">
+                <p class="country-card__name">Ethiopia</p>
+                <p class="country-card__status">Wave 1 published — April 2026</p>
+                <p class="country-card__desc">
+                  Nationally representative survey of ~2,700 merchants weighted
+                  to represent ~500,000 enterprises. Covers adoption, barriers,
+                  provider dynamics, and the economics of merchant payments.
+                </p>
+              </div>
+              <span class="country-card__cta">
+                View Ethiopia reports →
+              </span>
+            </a>
+
+            <!-- Nigeria — launching -->
+            <a href="research.html#nigeria" class="country-card">
+              <div class="country-card__flag">🇳🇬</div>
+              <div class="country-card__body">
+                <p class="country-card__name">Nigeria</p>
+                <p class="country-card__status">Data collection underway</p>
+                <p class="country-card__desc">
+                  The MPO is expanding to Nigeria — one of Africa's largest and
+                  most dynamic merchant payments markets. Baseline findings
+                  and reports coming in 2026.
+                </p>
+              </div>
+              <span class="country-card__cta country-card__cta--muted">
+                See what's coming →
+              </span>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
     </main>
 
     <!-- ===================== FOOTER ===================== -->
@@ -173,23 +151,20 @@
 
         <div class="footer__brand">
           <img
-            src="assets/dfs-lab-logo.png"
-            alt="DFS Lab"
+            src="assets/logo-reverse.svg"
+            alt="DFS"
             class="footer__logo"
           />
-          <!-- UPDATE: Replace with real tagline if different -->
           <span class="footer__tagline">Merchant Payments Observatory</span>
         </div>
 
         <nav class="footer__links" aria-label="Footer navigation">
-          <!-- UPDATE: Replace with real contact email and legal page URLs -->
           <a href="mailto:team@dfslab.net" class="footer__link">
             team@dfslab.net
           </a>
           <a href="privacy.html" class="footer__link">Privacy Policy</a>
         </nav>
 
-        <!-- UPDATE: Update year as needed -->
         <p class="footer__legal">
           &copy; 2026 DFS Lab. All rights reserved.
         </p>
