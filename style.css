@@ -433,6 +433,18 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: -0.005em;
 }
 
+.hero__text-link {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  transition: text-decoration-color var(--transition);
+}
+
+.hero__text-link:hover {
+  text-decoration-color: rgba(255, 255, 255, 0.9);
+}
+
 .hero__ctas {
   display: flex;
   flex-wrap: wrap;
